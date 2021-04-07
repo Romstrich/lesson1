@@ -18,5 +18,13 @@ get_asphalt_mass(height), необходимого для
 '''
 
 class Road:
-    def __init__(self):
-        pass
+    __density=25
+    def __init__(self,length,width):
+        self.length=length
+        self.width=width
+
+    def get_asphalt_mass(self,height):
+        return self.__density*height*self.length*self.width//1000
+
+north_road=Road(15000,20)
+print(f'{north_road.get_asphalt_mass(4)}  тонн')

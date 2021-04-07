@@ -22,3 +22,51 @@ SportCar, WorkCar, PoliceCar;
 рядом со значением скорости должна выводиться фраза "ПРЕВЫШЕНИЕ!", если скорость превышает 60 (TownCar) и 40 (WorkCar).
 Создайте по одному экземпляру каждого производного класса. В цикле из 10 итераций, для каждого автомобиля сделайте одно из случайных действий: go, stop, turn со случайными параметрами. После каждого действия показывайте статус автомобиля.
 '''
+
+
+
+
+class Car:
+    def __init__(self, color, name):
+        self.color=color
+        self.polis_car=False
+        self.speed=0
+        self.name=name
+        self.turned='Химки'
+
+
+    def go(self,speed):
+        self.speed=speed
+
+    def stop():
+        self.speed=0
+
+    def turn(self,turned):
+        pass
+
+    def is_police(self):
+        return self.polis_car
+
+    def get_status(self):
+        interpol='POLICE' if self.is_police() else ''
+        if speed> 0:
+            return f'{self.color}{self.name}движется со скоростью {self.speed} {self.turned}'
+        else:
+            return f'{self.color}{self.name} стоит'
+
+class   TownCar(Car):
+    pass
+
+class   SportCar(Car):
+    pass
+
+class   WorkCar(Car):
+    pass
+
+class   PoliceCar(Car):
+    def __init__(self, color, name):
+        self.color=color
+        self.polis_car=True
+        self.speed=100
+        self.name=name
+        self.turned='Химки'
