@@ -21,4 +21,53 @@
 Итого: 250.3
 '''
 
-print(type(2))
+
+class Clothes:
+    def __init__(self):
+        pass
+
+    #декоратор
+    @property
+    def cloth_size(self):
+        pass
+
+    def get_size(self):
+        pass
+
+
+
+class Suit(Clothes):
+    def __init__(self,height):
+        self.height=height
+
+    @property
+    def cloth_size(self):
+        return 2*self.height+0.3
+    #2 * height + 0.3
+
+    def __str__(self):
+        return f'{self.cloth_size:.2f} - {self.__class__.__name__} (height:{self.height})'
+
+class Coat(Clothes):
+    # size / 6.5 + 0.5
+    def __init__(self,size):
+        self.size=size
+
+    @property
+    def cloth_size(self):
+        return 2 * self.size / 6.5 + 0.5
+
+    def __str__(self):
+        return f'{self.cloth_size:.2f} - {self.__class__.__name__} (height:{self.size})'
+
+
+
+
+def clothes_list():
+    import random
+    return [random.choice([Coat(random.randint(40,50)),Suit(random.randint(40,50))]) for i in range(10)]
+
+for i in clothes_list():
+    print(i)
+
+
